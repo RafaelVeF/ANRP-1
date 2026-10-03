@@ -1,2 +1,2 @@
 @echo off
-start "" pythonw main.py
+call LANCER_UNIT-95.bat
