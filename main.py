@@ -11,6 +11,7 @@ import queue
 import time
 from PIL import Image
 from brain import get_bot_response_stream, user_memory, bot_learning, system_info_queue
+import voice_worker
 
 # --- 1. FONCTIONS DE CHARGEMENT ---
 FACES_DIR = "faces"
@@ -56,13 +57,17 @@ for voice in voices:
 
 tts_queue = queue.Queue()
 
+is_speaking = False
 def tts_worker():
+    global is_speaking
     while True:
         text = tts_queue.get()
         if text is None: break
         if text.strip():
+            is_speaking = True
             engine.say(text)
             engine.runAndWait()
+            is_speaking = False
 
 tts_thread = threading.Thread(target=tts_worker, daemon=True)
 tts_thread.start()
@@ -583,8 +588,15 @@ while running:
             else:
                 tree_scroll_y = min(0, tree_scroll_y + event.y * 20)
 
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LALT:
+                voice_worker.stop_recording_and_transcribe()
+        
         # --- Clavier ---
         if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LALT:
+                voice_worker.start_recording()
+                
             mods = pygame.key.get_mods()
             if mods & pygame.KMOD_CTRL:
                 if event.key == pygame.K_v:
@@ -626,12 +638,46 @@ while running:
                     user_input = user_input[:cursor_pos] + event.unicode + user_input[cursor_pos:]
                     cursor_pos += 1
 
+    # Polling STT Queue
+    try:
+        stt_text = voice_worker.STT_QUEUE.get_nowait()
+        if stt_text and not is_thinking and not is_typing:
+            user_input = stt_text
+            chat_scroll_y = 0
+            for l in wrap_text(f"> USER (Voix): {user_input}", max_chars_per_line):
+                chat_log.append(l)
+            is_thinking = True
+            gen_start_time = time.time()
+            generated_tokens_count = 0
+            user_input_history_save = user_input
+            decay_vitals()
+            threading.Thread(
+                target=fetch_response_thread,
+                args=(user_input, history.copy()),
+                daemon=True
+            ).start()
+            user_input = ""
+            cursor_pos = 0
+    except queue.Empty:
+        pass
+
     # --- 4. DESSIN ---
     screen.fill(BLUE_BG)
 
     # Visage : centré dans l'espace central (entre l'arbre et le panneau vitaux)
     face_grid = load_face_grid(display_mood)
-    if is_thinking:
+    
+    # Audio Visualizer logic
+    if is_speaking:
+        pulse = int(180 + 75 * abs(((pygame.time.get_ticks() // 10) % 50 - 25) / 25))
+        face_color = (100, pulse, 255) # Couleur cyan/bleu vif quand il parle
+        # Animation légère du visage (bouche)
+        if len(face_grid) > 4:
+            middle_idx = len(face_grid) // 2
+            face_grid[middle_idx] = face_grid[middle_idx].replace("_", "O").replace("-", "o")
+    elif voice_worker.IS_RECORDING:
+        face_color = (255, 100, 100) # Rouge quand il écoute
+    elif is_thinking:
         pulse = int(180 + 75 * abs(((pygame.time.get_ticks() // 20) % 50 - 25) / 25))
         face_color = (30, pulse, 80)
     else:
