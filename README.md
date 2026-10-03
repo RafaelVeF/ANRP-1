@@ -1,21 +1,21 @@
-# 🤖 UNIT-95 (ANRP-1)
+## UNIT-95 (ANRP-1)
 
 UNIT-95 est un assistant IA interactif local propulsé par une interface **Pygame-CE** rétro-futuriste, un moteur d'émotions dynamique (ASCII faces), un système de mémoire arborescente persistante, et un pipeline de recherche web en temps réel (Mini-RAG).
 
 ---
 
-## ✨ Fonctionnalités
+##  Fonctionnalités
 
-- 🧠 **IA Locale Rapide & Privée** : Utilise Ollama (`llama3.2`) pour répondre instantanément sans dépendre d'une API payante.
-- 🎭 **Visages ASCII Dynamiques** : Expressions et animations fluides en temps réel selon l'humeur de l'IA (clignements, réactions, émotions).
-- 🌐 **Deep Web Search (Mini-RAG)** : Recherche web avancée avec crawling multi-thread (`ddgs`, `BeautifulSoup4`) et extraction de faits récents.
-- ⚡ **Exécution d'Actions Système** : Lancement de musique YouTube, météo en direct, ouverture d'URLs, exécution de commandes locales.
-- 💾 **Mémoire Persistante & Apprentissage** : Retient les informations clés sur l'utilisateur au fil des discussions dans `memory.json`.
-- 📜 **Double Terminal Défilable** : Fenêtre de chat à gauche + panneau d'informations système et recherche à droite avec défilement fluide à la molette.
+-  **IA Locale Rapide & Privée** : Utilise Ollama (`llama3.2`) pour répondre instantanément sans dépendre d'une API payante.
+-  **Visages ASCII Dynamiques** : Expressions et animations fluides en temps réel selon l'humeur de l'IA (clignements, réactions, émotions).
+-  **Deep Web Search (Mini-RAG)** : Recherche web avancée avec crawling multi-thread (`ddgs`, `BeautifulSoup4`) et extraction de faits récents.
+-  **Exécution d'Actions Système** : Lancement de musique YouTube, météo en direct, ouverture d'URLs, exécution de commandes locales.
+-  **Mémoire Persistante & Apprentissage** : Retient les informations clés sur l'utilisateur au fil des discussions dans `memory.json`.
+-  **Double Terminal Défilable** : Fenêtre de chat à gauche + panneau d'informations système et recherche à droite avec défilement fluide à la molette.
 
 ---
 
-## 🚀 Démarrage Rapide (1-Clic)
+##  Démarrage Rapide (1-Clic)
 
 ### Pour les utilisateurs Windows :
 1. Téléchargez ou clonez le projet.
@@ -29,7 +29,7 @@ UNIT-95 est un assistant IA interactif local propulsé par une interface **Pygam
 
 ---
 
-## 🛠️ Installation Manuelle (Optionnelle)
+##  Installation Manuelle (Optionnelle)
 
 Si vous préférez installer manuellement les dépendances :
 
@@ -51,7 +51,7 @@ python main.py
 
 ---
 
-## 📦 Dépendances Principales
+##  Dépendances Principales
 - `pygame-ce` : Interface graphique et boucle d'événements.
 - `openai` : Client de streaming local pour Ollama.
 - `pyttsx3` : Synthèse vocale.
