@@ -1,0 +1,8 @@
+pygame-ce
+pyttsx3
+pyperclip
+Pillow
+openai
+requests
+beautifulsoup4
+ddgs

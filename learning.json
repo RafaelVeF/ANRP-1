@@ -1,0 +1,35 @@
+{
+    "Routines": {
+        "ModeTravail": [
+            {
+                "OPEN_BROWSER": "https://github.com/RafaelVeF"
+            },
+            {
+                "OPEN_BROWSER": "https://www.youtube.com/watch?v=jfKfPfyJRdk"
+            }
+        ],
+        "ConsultationEmploiDuTemps": [
+            {
+                "OPEN_BROWSER": "https://extra.u-picardie.fr/calendar/cal?vt=month&dt=2026-10-01&et=student&fid0=v22405349"
+            }
+        ],
+        "ConsultationNotes": [
+            {
+                "OPEN_BROWSER": "https://sconotes.iut-amiens.fr/"
+            }
+        ],
+        "ConsultationMails": [
+            {
+                "OPEN_BROWSER": "https://www.horde.u-picardie.fr/"
+            },
+            {
+                "OPEN_BROWSER": "https://mail.google.com/"
+            }
+        ],
+        "RechercheInternet": [
+            {
+                "OPEN_BROWSER": "https://google.com"
+            }
+        ]
+    }
+}

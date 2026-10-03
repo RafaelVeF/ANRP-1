@@ -1,0 +1,44 @@
+{
+    "OPEN_BROWSER": {
+        "description": "Ouvre un onglet dans le navigateur par défaut de l'utilisateur vers l'URL indiquée.",
+        "parameters": [
+            "url"
+        ],
+        "enabled": true
+    },
+    "EXECUTE_ROUTINE": {
+        "description": "Exécute une routine de travail ou macro pré-enregistrée.",
+        "parameters": [
+            "routine_name"
+        ],
+        "enabled": true
+    },
+    "SYSTEM_CMD": {
+        "description": "Lance un programme système local (calculatrice, explorateur, notepad...).",
+        "parameters": [
+            "program_name"
+        ],
+        "enabled": true
+    },
+    "PLAY_MUSIC": {
+        "description": "Recherche et lance la première vidéo musicale YouTube correspondante au paramètre.",
+        "parameters": [
+            "search_query"
+        ],
+        "enabled": true
+    },
+    "GET_WEATHER": {
+        "description": "Récupère la météo actuelle pour une ville donnée.",
+        "parameters": [
+            "city"
+        ],
+        "enabled": true
+    },
+    "WEB_SEARCH": {
+        "description": "Effectue une recherche sur le web via DuckDuckGo.",
+        "parameters": [
+            "query"
+        ],
+        "enabled": true
+    }
+}

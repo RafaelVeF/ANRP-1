@@ -1,0 +1,15 @@
+{
+    "user_profile": {
+        "Name": "Rafael",
+        "Birthday": "12/09/2006",
+        "OS": "Windows 11 23H2",
+        "Experience": "Informatique,BTS"
+    },
+    "session_state": "ActualitesActuelles",
+    "world_facts": {
+        "System": {
+            "Program": "ANRP-01",
+            "Version": "1.4.0"
+        }
+    }
+}

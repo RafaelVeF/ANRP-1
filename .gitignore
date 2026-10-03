@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# VSCode / IDE
+.vscode/
+.idea/
+
+# OS / Temp
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.bak
+*.tmp
+*.log
+
+# Scratch / tests temporaires
+scratch/
